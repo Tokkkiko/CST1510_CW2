@@ -4,10 +4,10 @@ fetch_data.py - Week 8: get data from an API and save it as DATA/raw.csv.
 Run it:  python fetch_data.py
 """
 
-from pathlib import Path
+from pathlib import Path 
 
 import pandas as pd
-import requests
+import requests 
 
 # ---- Settings: the only part you change for your own data ----------------
 
