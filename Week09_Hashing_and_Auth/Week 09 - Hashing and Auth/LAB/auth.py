@@ -8,7 +8,7 @@ Passwords are hashed with bcrypt. Users are kept in DATA/users.txt, one per line
 Run it:  python auth.py
 """
 
-from pathlib import Path
+from pathlib import Path 
 
 import bcrypt
 
