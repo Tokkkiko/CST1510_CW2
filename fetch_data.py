@@ -7,7 +7,7 @@ Run it:  python fetch_data.py
 from pathlib import Path
 
 import pandas as pd
-import requests
+import requests 
 
 # ---- Settings: the only part you change for your own data ----------------
 
