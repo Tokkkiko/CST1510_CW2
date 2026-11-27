@@ -1,4 +1,3 @@
-
 """
 fetch_data.py - Week 8: get data from an API and save it as DATA/raw.csv.
 
@@ -19,19 +18,11 @@ PARAMS = {"format": "geojson", "minmagnitude": 2.5, "limit": 500}
 RECORDS_KEY = "features"   # the list of earthquakes lives under this key
 
 # Flattened column names -> friendlier names
-RENAME = {
-    "properties_mag": "magnitude",
-    "properties_place": "place",
-    "properties_time": "time",
-    "properties_type": "event_type",
-    "properties_title": "title",
-    "properties_status": "status",
-    "properties_url": "url",
-}
-
-KEEP = ["id", "magnitude", "place", "time", "event_type",
-        "title", "status", "url"]
-MUST_HAVE = ["id", "magnitude", "place", "time", "title", "status"]
+RECORDS_KEY = "features"
+RENAME = {"properties_mag": "mag", "properties_place": "place", "properties_time": "time",
+          "properties_magType": "mag_type", "properties_sig": "significance", "properties_tsunami": "tsunami"}
+KEEP = ["time", "place", "mag", "mag_type", "depth_km", "significance", "tsunami"]
+MUST_HAVE = ["mag"]
 
 RAW_FILE = Path(__file__).parent / "DATA" / "raw.csv"
 # ---- The functions ----------------------------------------------------------
@@ -58,6 +49,8 @@ def tidy_data(df):
     """Rename, keep and clean the columns."""
     df = df.rename(columns=RENAME)
     # Extra cleaning for your own data can go here (the earthquake example in Step 5 shows two lines).
+    df["depth_km"] = df["geometry_coordinates"].apply(lambda coords: coords[2])
+    df["time"] = pd.to_datetime(df["time"], unit="ms").dt.strftime("%Y-%m-%d %H:%M:%S")
     df = df[KEEP]
     df = df.dropna(subset=MUST_HAVE)
     return df
