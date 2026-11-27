@@ -1,6 +1,6 @@
 time,place,mag,mag_type,depth_km,significance,tsunami
 2026-11-27 07:56:45,"13 km SSW of Guánica, Puerto Rico",3.31,md,7.76,169,0
-2026-11-27 04:44:36,"Off the coast of Aisen, Chile",5.0,mww,10.0,385,0
+2026-11-27 04:44:36,"Off the coast of Aisen, Chile",5.0,mww,10.0,385,0 
 2026-11-27 04:17:10,"155 km WNW of Tobelo, Indonesia",4.6,mb,42.538,326,0
 2026-11-27 02:13:21,"89 km SSE of Sola, Vanuatu",5.0,mww,8.982,385,0
 2026-11-27 00:07:00,"107 km SSE of Auki, Solomon Islands",5.1,mb,74.064,400,0
